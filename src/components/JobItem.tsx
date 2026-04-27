@@ -7,11 +7,23 @@ type Props = {
 };
 
 export default function JobItem({ job, onDelete, onChangeStatus }: Props) {
+
+    const statusColor = {
+        applied: "green",
+        interview: "orange",
+        rejected: "red",
+    }
+
     return (
-        <div style={{border: "1px solid gray", marginBottom: 10, padding: 10}}>
+        <div className="job-card" style={{border: "1px solid gray", marginBottom: 10, padding: 10}}>
             <h3>{job.title}</h3>
             <p>{job.company}</p>
-            <p>Status: {job.status}</p>
+            <p>
+                Status:{" "}
+                <span style={{ color: statusColor[job.status], fontWeight: "bold"}}>
+                    {job.status}
+                </span>
+            </p>
 
             <button onClick={() => onDelete(job.id)}>Delete</button>
 

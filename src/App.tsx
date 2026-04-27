@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Job } from "./types/job";
 import JobForm from "./components/JobForm";
 import JobList from "./components/JobList";
+import "./App.css";
 
 function App() {
   const [jobs, setJobs] = useState<Job[]>([
@@ -33,7 +34,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app-container">
       <h1>Job Tracker TS</h1>
 
       <JobForm onAdd={addJob} />
